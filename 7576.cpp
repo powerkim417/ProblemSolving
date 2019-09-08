@@ -57,7 +57,10 @@ int main(void){
     for (int i=0 ; i<n ; i++){
         for (int j=0 ; j<m ; j++){
             cin>>map[i][j];
-            if (map[i][j] == 1) q.push({i,j}); // 모든 시작토마토들을 큐에 넣고 시작!!(BFS의 시작점이 여러개가 되는 것!!)
+            if (map[i][j] == 1) {
+                q.push({i,j}); // 모든 시작토마토들을 큐에 넣고 시작!!(BFS의 시작점이 여러개가 되는 것!!)
+                visited[i][j] = true;
+            }
             else if (map[i][j] == 0) zero_cnt++;
         }
     }
