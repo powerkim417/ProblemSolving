@@ -1,22 +1,21 @@
 /*
-<N과 M(3)>
-1~N까지의 수
+<N과 M(7)>
+N개의 서로 다른 숫자를 입력으로 받음
 수열 내 숫자 중복 활용 O
 사전 순으로
+
+N과 M(3) 참조
 */
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int n, m;
-/*
-방문한 노드를 재방문해야 하므로
-N과 M(1) 코드와 비교했을 때
-visited 관련 코드가 모두 사라짐. 
-*/ 
-// bool visited[9];
+vector<int> num;
+// bool visited[10001];
 
 void dfs(int cur, int len, vector<int> v){
     // v는 아직 cur가 들어가기 전
@@ -30,9 +29,9 @@ void dfs(int cur, int len, vector<int> v){
         return;
     }
     // visited[cur] = true;
-    for (int next=1 ; next<=n ; next++){
-        // if (!visited[next]){
-            dfs(next, len+1, v);
+    for (int next=0 ; next<n ; next++){
+        // if (!visited[num[next]]){
+            dfs(num[next], len+1, v);
         // }
     }
     v.pop_back();
@@ -41,9 +40,15 @@ void dfs(int cur, int len, vector<int> v){
 
 int main(void){
     cin>>n>>m;
+    int temp;
+    for (int i=0 ; i<n ; i++){
+        cin>>temp;
+        num.push_back(temp);
+    }
+    sort(num.begin(), num.end());
     vector<int> v;
-    for (int i=1 ; i<=n ; i++){
+    for (int i=0 ; i<n ; i++){
         v.clear();
-        dfs(i, 1, v);
+        dfs(num[i], 1, v);
     }
 }

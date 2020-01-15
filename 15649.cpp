@@ -1,7 +1,7 @@
 /*
-<N과 M(3)>
+<N과 M(1)>
 1~N까지의 수
-수열 내 숫자 중복 활용 O
+수열 내 숫자 중복 활용 X
 사전 순으로
 */
 
@@ -11,12 +11,7 @@
 using namespace std;
 
 int n, m;
-/*
-방문한 노드를 재방문해야 하므로
-N과 M(1) 코드와 비교했을 때
-visited 관련 코드가 모두 사라짐. 
-*/ 
-// bool visited[9];
+bool visited[9]; // 숫자 갯수가 적어서 비트마스킹으로도 가능할듯
 
 void dfs(int cur, int len, vector<int> v){
     // v는 아직 cur가 들어가기 전
@@ -29,14 +24,20 @@ void dfs(int cur, int len, vector<int> v){
         cout<<"\n";
         return;
     }
-    // visited[cur] = true;
+    visited[cur] = true;
     for (int next=1 ; next<=n ; next++){
-        // if (!visited[next]){
+        if (!visited[next]){
             dfs(next, len+1, v);
-        // }
+        }
     }
     v.pop_back();
-    // visited[cur] = false;
+    /*
+    1 2 .. 와 같은 탐색을 하고
+    2 1 와 같이 1을 다시 보려면
+    앞의 탐색에서 1을 다 본 후 visited=false 처리를 해줘야 함
+    (백트래킹)
+    */
+    visited[cur] = false;
 }
 
 int main(void){

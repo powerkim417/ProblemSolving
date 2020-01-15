@@ -1,6 +1,7 @@
 /*
-<N과 M(3)>
+<N과 M(4)>
 1~N까지의 수
+비내림차순 순열
 수열 내 숫자 중복 활용 O
 사전 순으로
 */
@@ -30,7 +31,9 @@ void dfs(int cur, int len, vector<int> v){
         return;
     }
     // visited[cur] = true;
-    for (int next=1 ; next<=n ; next++){
+    
+    // N과 M(3) 코드와 비교했을 때 여기가 바뀜
+    for (int next=cur ; next<=n ; next++){
         // if (!visited[next]){
             dfs(next, len+1, v);
         // }
