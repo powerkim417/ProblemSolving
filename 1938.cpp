@@ -26,7 +26,7 @@ bool ev;
 
 int bfs(int i, int j, bool v){
     q.push({i, j, v});
-    visited[i][j][v];
+    visited[i][j][v] = true;
     int cnt = 0;
     bool found = false;
     while (!q.empty()){
