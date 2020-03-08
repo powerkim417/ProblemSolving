@@ -42,6 +42,7 @@ int main(void){
     }
     int total_wall = wall.size();
     // select 보조수열을 이용하여 m*n C 3 의 조합을 모두 구함
+    // 0을 먼저 넣는다
     for (int i=0 ; i<total_wall-3 ; i++){
         select.push_back(0);
     }

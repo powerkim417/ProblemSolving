@@ -14,7 +14,7 @@ int start_time; // 매 메인 DFS 시작 시간
 // DFS 사이클 찾기의 가장 기본 문제 형태. 잘 숙지할 것
 // 스택을 안 쓴 남규의 풀이. 이렇게 공부할것!!!!!
 
-void dfs(int cur){ // 메모리 초과때문에 &s로 받는다.
+void dfs(int cur){
     // cout<<cur<<"\n";
     visited[cur] = time++;
     int next = pick[cur];
