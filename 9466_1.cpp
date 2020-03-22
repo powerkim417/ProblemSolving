@@ -38,7 +38,7 @@ int main(void){
         time = 0;
         for (int i=1 ; i<=n ; i++){
             cin>>pick[i];
-            visited[i] = false;
+            visited[i] = 0;
         }
         for (int i=1 ; i<=n ; i++){
             if (visited[i] == 0) { // visited가 기록된 애들은 기존에 dfs 탐색으로 이미 확인하였고,
