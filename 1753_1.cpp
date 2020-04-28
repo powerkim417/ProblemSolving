@@ -12,7 +12,7 @@ int dist[20001]; // 출발점 K로부터의 거리
 
 void dijkstra(int start){
     for (int i=1 ; i<=V ; i++) dist[i] = INF;
-    priority_queue<P, vector<P>, greater<P>> pq; // edge가 저장되는게 아님! {push할 기준 출발노드-해당노드간 최단거리, 해당노드} 가 저장된다고 이해하면 됨
+    priority_queue<P, vector<P>, greater<P>> pq; // edge가 저장되는게 아님! {시작노드-해당노드간 최단거리, 해당노드} 가 저장된다고 이해하면 됨
     // 시작점 관련 초기화
     dist[K] = 0;
     pq.push({0, K}); // 현재 ->K 까지 0의 비용을 소모
@@ -26,7 +26,7 @@ void dijkstra(int start){
         // cur.second의 최단거리는 확정된 상태!
         // Why? 이 시점에서 cur.second보다 짧은 거리가 있었다면 pq에 의해 더 짧은 간선들을 통해 계산되었을 것. 
        
-        // {push할 기준 출발노드-해당노드간 최단거리, 해당노드} 후보로 받아온 것에 대한 검증. 이로 인해 최단거리가 갱신된다면 다른 정점에 대한 {push할 기준 출발노드-해당노드간 최단거리, 해당노드} 후보를 또 push한다.
+        // {시작노드-해당노드간 최단거리, 해당노드} 후보로 받아온 것에 대한 검증. 이로 인해 최단거리가 갱신된다면 다른 정점에 대한 {시작노드-해당노드간 최단거리, 해당노드} 후보를 또 push한다.
         for (P next: adj[cur.second]){
             // 인접한 노드들의 dist를 갱신하고, pq에 넣음
             if (dist[cur.second] + next.first < dist[next.second]){

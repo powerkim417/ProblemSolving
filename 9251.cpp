@@ -29,11 +29,11 @@ int main(void){
             else dp[i][j] = max(dp[i-1][j], dp[i][j-1]); // 다른 경우: 의미없는 비교. i-1,j이나 i,j-1에서 더 발전한게 없으므로 두 값중 큰 값으로 채움
         }
     }
-    // for (int i=0 ; i<len_a ; i++){
-    //     for (int j=0 ; j<len_b ; j++){
-    //         cout<<dp[i][j]<<" ";
-    //     }
-    //     cout<<"\n";
-    // }
+    for (int i=0 ; i<len_a ; i++){
+        for (int j=0 ; j<len_b ; j++){
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
     cout<<dp[len_a-1][len_b-1];
 }
