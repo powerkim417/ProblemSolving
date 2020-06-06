@@ -31,7 +31,7 @@ int main(void){
     long a=0, b=0, c=0; // 답으로 출력할 세 용액
     // 세 용액을 각각 i,j,k(i<j<k)라고 하고 탐색
     for (int i=0 ; i<n-2 ; i++){
-        int j=i+1, k=n-1; // i 이후의 부분집합의 양 끝에서 시작
+        int j=i+1, k=n-1; // i 이후의 부분집합의 양 끝에서 시작. 이 방법은 여러 케이스 중 하나만 찾아도 될 때만 통하는듯..
         while (j<k){
             sum = num[i]+num[j]+num[k];
             if (llabs(sum)<min){

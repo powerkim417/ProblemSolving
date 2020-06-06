@@ -1,15 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#define INF 499*10000+1
+#define N 500
+#define INF (N-1)*10000+1
 
 using namespace std;
 
 int n, m;
-vector<pair<int, int>> adj[501]; // 시간, 노드
+vector<pair<int, int>> adj[N+1]; // 시간, 노드
 queue<int> q;
-int dist[501] = {};
-bool marked[501] = {}; // 큐에 있는지
+int dist[N+1] = {};
+bool marked[N+1] = {}; // 큐에 있는지
 
 // 벨만 포드
 // 음수 사이클이 존재하는 경우: 답이 -1
