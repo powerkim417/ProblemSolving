@@ -18,6 +18,7 @@ P place[102];
 bool able[102][102];
 
 int t, n;
+// 플로이드 와샬
 int main(void){
     cin>>t;
     while (t--){
@@ -31,9 +32,9 @@ int main(void){
             }
         }
         // 1000 이하인 경우 true, 아니면 false
-        for (int i=0 ; i<n+2 ; i++){
-            for (int j=0 ; j<n+2 ; j++){
-                for (int k=0 ; k<n+2 ; k++){
+        for (int k=0 ; k<n+2 ; k++){
+            for (int i=0 ; i<n+2 ; i++){
+                for (int j=0 ; j<n+2 ; j++){
                     if (able[i][k] && able[k][j]){
                         able[i][j] = true;
                     }
