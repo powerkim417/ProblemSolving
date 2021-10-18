@@ -14,14 +14,18 @@ int main(void){
         }
     }
     dp[1][1] = map[1][1];
-    dp[2][1] = map[1][1] + map[2][1];
-    dp[2][2] = map[1][1] + map[2][2];
-    int answer = 0;
-    for (int i=3 ; i<=n ; i++){
-        for (int j=1 ; j<=i ; j++){
+    for (int i=2 ; i<=n ; i++){
+        dp[i][1] = dp[i-1][1] + map[i][1];
+        for (int j=2 ; j<i ; j++){
             dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + map[i][j];
-            if (dp[i][j] > answer) answer = dp[i][j];
         }
+        // 기존 코드는 i=2까지 직접 할당하고 여기에서 새 값을 받을 때마다 answer를 갱신했는데, 이 경우 직접 할당한 부분이 실제 답일 때 answer와 비교하지 못하게 되므로 오류
+        dp[i][i] = dp[i-1][i-1] + map[i][i];
+    }
+    int answer = dp[n][1];
+    for (int j=2 ; j<=n ; j++){
+        if (answer < dp[n][j]) answer = dp[n][j];
     }
     cout<<answer;
+    return 0;
 }
