@@ -24,6 +24,7 @@ int main(void){
         for (int y=1 ; y<=n ; y++){
             for (int d1=1 ; d1<=n-2 ; d1++){
                 for (int d2=1 ; d2<=n-2 ; d2++){
+                    // 문제에 나온 부등식 조건들
                     if (!(x+d1+d2<=n)) continue;
                     if (!(d1+1<=y)) continue;
                     if (!(y+d2<=n)) continue;
