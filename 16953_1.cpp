@@ -12,6 +12,23 @@ int main(void){
     cin>>a>>b;
     int answer = 1;
     while (a<=b){
-        if (b%10==1)
+        if (a==b) {
+            cout<<answer;
+            return 0;
+        }
+        if (b%10==1) {
+            b /= 10;
+            answer++;
+        }
+        else if (b%2==0) {
+            b /= 2;
+            answer++;
+        }
+        else {
+            cout<<"-1";
+            return 0;
+        }
     }
+    cout<<"-1";
+    return 0;
 }
