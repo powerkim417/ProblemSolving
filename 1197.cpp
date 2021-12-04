@@ -34,6 +34,7 @@ bool merge(int a, int b){
     return true;
 }
 
+// 임의의 두 정점 사이에 경로가 있다 => 연결 그래프 보장
 // MST 기본 예제 - kruskal(크루스칼)
 int main(void){
     cin.tie(0);
