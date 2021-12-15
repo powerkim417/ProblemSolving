@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#define INF 99999000001
+#define INF 199999LL * 1000000LL + 1
+// 99999로 하면 안된다.. Y모양의 그래프에서 윗 두 점이 출발점과 도착점이고, 아랫 점이 경유점이라면 최악의 경우 모든 간선을 거의 2번씩 지날 수 있음
 
 using namespace std;
 
-typedef pair<double, int> P;
+typedef pair<long long, int> P;
 vector<P> adj[100001];
 long long dist[2][100001]; // x, z
 int n, m, u, v, w, x, z, p, y;
