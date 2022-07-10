@@ -1,4 +1,11 @@
 a.exe
+out
 input.txt
+
 .vscode
-문제복기
+
+.DS_Store
+
+*문제복기
+
+*.class
